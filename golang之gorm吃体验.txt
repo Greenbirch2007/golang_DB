@@ -1,0 +1,37 @@
+
+
+1. 首先导入驱动包以及gorm库
+
+import (
+    "database/sql"
+    "fmt"
+    _ "github.com/go-sql-driver/mysql"
+    "time"
+)
+
+
+2. 建立一个和数据库映射的结构体，
+其中字段后面的tag就是数据库中的对应的列
+也就是和字段和列映射起来。
+
+下面建立一个UserInfo的结构体
+
+type Userinfo struct {
+	Id int `gorm:"column:id" json:"id"`
+	Name string `gorm:"column:name" json:"name"`
+	Phone string `gorm:"column:phone" json:phone`
+	CreatedTime time.Time `gorm:"column:created_time" json:"create_time"`
+	CreatedUser string `gorm:"column:created_user" json:"created_user"`
+}
+
+
+3.接下来，打开数据库连接，获取*DB,然后进行一些操作，注意获取到的
+一直都是*DB对象，也就是一种链式编程的效果，
+这让我们可以一直拥有这个对象而不用另附变量
+
+所以可以一直db.Table().Find().Error()调用下去，
+
+
+
+
+

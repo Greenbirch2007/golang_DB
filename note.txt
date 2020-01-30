@@ -1,0 +1,23 @@
+
+
+整体的思路
+
+１．使用库(直接使用原生sql)
+import (
+    "database/sql"
+    "fmt"
+    _ "github.com/go-sql-driver/mysql"
+    "time"
+)
+
+２.使用gorm(关系映射模型)
+
+package main
+
+import (
+	"fmt"
+	"github.com/gin-gonic/gin"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"net/http"
+)
